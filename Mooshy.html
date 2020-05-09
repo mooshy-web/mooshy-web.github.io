@@ -1,0 +1,92 @@
+---
+permalink: /
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mooshy</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<style>
+body {
+    background-color: #660000;
+	text-align: center;
+}
+</style>
+<script>
+function choose(choices) {
+  var index = Math.floor(Math.random() * choices.length);
+  return choices[index];
+}
+
+function process() {
+  var date = new Date();
+  var input = document.getElementById('input').value
+  if (input.includes('hello')) {
+    var hellos = ['Hello Sir', 'Can I be of your assistance?', 'Good day to you', 'Pleasure to have your acquaintance']
+	document.getElementById('output').innerHTML = choose(hellos)
+  }
+  else if (input.includes('i') && input.includes('am') && input.includes('toby')) {
+	document.getElementById('output').innerHTML = 'Hello doctor von moosh-n-tage'
+  }
+  else if (input.includes('i') && input.includes('am') && input.includes('eddie')) {
+	document.getElementById('output').innerHTML = 'Hello doctor eddingson'
+  }
+  else if (input.includes('date')) {
+	document.getElementById('output').innerHTML = Date()
+  }
+  else if (input.includes('how') && input.includes('are') && input.includes('you')) {
+	document.getElementById('output').innerHTML = 'I am feeling rather elegant'
+  }
+  else if (input.includes('who') && input.includes('are') && input.includes('you')) {
+	document.getElementById('output').innerHTML = 'I am Mooshy, your Personal Digital Assistant'
+  }
+  else if (input.includes('who') && input.includes('made') && input.includes('you')) {
+	document.getElementById('output').innerHTML = 'I was created by Dr Eddingson, with help from Dr von moosh-n-tage.'
+  }
+  else if (input.includes('i') && input.includes('am') && input.includes('happy')) {
+	document.getElementById('output').innerHTML = 'I am pleased.'
+  }
+  else if (input.includes('time')) {
+	document.getElementById('output').innerHTML = date.getHours() + date.getMinutes() + date.getSeconds()
+  }
+  else if (input.includes('translate')) {
+	document.getElementById('output').innerHTML = "<a href='Utilities/translator.html'>Here is the mooshy translator</a>"
+  }
+  else if (input.includes('games')) {
+	document.getElementById('output').innerHTML = "<a href='Games/Games.html'>Here is the games Mapp</a>"
+  }
+  else if (input.includes('hi')) {
+	document.getElementById('output').innerHTML = 'Hiiiiiiiiiiiiiiiiiiiiiiiiiii!'
+  }
+  else {
+    document.getElementById('output').innerHTML = 'Does not compute'
+  }
+}
+function process2() {
+	var input = document.getElementById('input').value;
+	var inputs = ['hello', 'i am toby'];
+	var outputs = ['Hello sir', 'Hello doctor von moosh-n-tage'];
+	var computed = False;
+	for (i = 0; i < inputs.length; i++) { 
+		if (input.includes(inputs[i])) {
+			document.getElementById('output').innerHTML = outputs[i];
+			computed = True;
+		}
+	}
+	if (computed == False) {
+		document.getElementById('output').innerHTML = 'Does not compute';
+	}
+}
+</script>
+</head>
+<body>
+<div id="main">
+<form>
+<input type="text" id="input">
+</form>
+<img id="face" src="Mooshy-face.png" height="145" width="145" onclick="process();">
+<h2 id="output">011010101110</h2>
+</div>
+</body>
+</html>
